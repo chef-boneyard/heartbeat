@@ -1,0 +1,4 @@
+auth <%= @active %>
+<% @keys.each_with_index do |secret, i| -%>
+<%= i+1 %> sha1 <%=  secret %>
+<% end -%>
