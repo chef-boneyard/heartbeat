@@ -23,6 +23,7 @@ def after_created
   run_context.resource_collection.each do |res|
     raise "You may only define a single heartbeat resource per node. Found #{res}: #{res.defined_at}" if res.is_a?(self.class) && res.name != name
   end
+  raise "No resource groups specified" if resource_groups.empty?
 end
 
 # These map directly to ha.cf directives
@@ -50,6 +51,10 @@ def resources(ip=nil, &block)
   group = ::Chef::Resource::HeartbeatResourceGroup.new(run_context, cookbook_name, recipe_name)
   group.ipaddr ip if ip
   group.instance_eval(&block) if block
+  raise "No resources found in group" if group.sub_resources.empty?
+  resource_groups.each do |g|
+    raise "The first resource in each group must be distinct" if g.sub_resources.first.to_resource == group.sub_resources.first.to_resource
+  end
   resource_groups << group
   group
 end
