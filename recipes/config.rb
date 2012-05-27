@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+include_recipe "heartbeat"
+
 heartbeat "heartbeat" do
   auto_failback node['heartbeat']['config']['auto_failback']
   autojoin node['heartbeat']['config']['autojoin']
