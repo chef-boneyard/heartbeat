@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-node['packages'].each do |pkg|
+node['heartbeat']['packages'].each do |pkg|
   package pkg do
     action :install
   end
