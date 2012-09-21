@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-%w{ heartbeat heartbeat-dev }.each do |pkg|
+node['packages'].each do |pkg|
   package pkg do
     action :install
   end
