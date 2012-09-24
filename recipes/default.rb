@@ -17,7 +17,13 @@
 # limitations under the License.
 #
 
-%w{ heartbeat heartbeat-dev }.each do |pkg|
+case node['platform']
+when "centos", "redhat"
+    package_list = ['heartbeat', 'heartbeat-devel']
+when "ubuntu", "debian"
+    package_list = ['heartbeat', 'heartbeat-dev']
+end
+package_list.each do |pkg|
   package pkg do
     action :install
   end
