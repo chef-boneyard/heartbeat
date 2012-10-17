@@ -1,0 +1,28 @@
+udpport <%= @heartbeat.udpport %>
+autojoin <%= @heartbeat.autojoin %>
+<% if @heartbeat.compression -%>
+compression <%= @heartbeat.compression %>
+<% end -%>
+compression_threshold <%= @heartbeat.compression_threshold %>
+deadtime <%= @heartbeat.deadtime %>
+initdead <%= @heartbeat.initdead %>
+keepalive <%= @heartbeat.keepalive %>ms
+logfacility <%= @heartbeat.logfacility %>
+warntime <%= @heartbeat.warntime %>
+
+<% case @heartbeat.mode.to_sym -%>
+<% when :ucast -%>
+<% @nodes.select{|n| n['macaddress'] != node['macaddress']}.each do |n| -%>
+ucast <%=@interface.first %> <%= n['ipaddress'] %>
+<% end -%>
+<% when :bcast -%>
+bcast <%= @interface.join(' ') %>
+<% when :mcast -%>
+mcast <%= @interface.first %> <%= @heartbeat.mcast_group %> <%= @heartbeat.udpport %> <%= @heartbeat.mcast_ttl %>
+<% end -%>
+
+auto_failback <%= @heartbeat.auto_failback ? "on" : "off" %>
+
+<% @nodes.each do |n| -%>
+node <%= n['hostname'] %>
+<% end -%>

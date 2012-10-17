@@ -1,0 +1,3 @@
+<% @heartbeat.resource_groups.each do |group| -%>
+<%= group.default_node || @default %> <%= group.sub_resources.map{|r| r.to_resource}.join(' ') %>
+<% end -%>
