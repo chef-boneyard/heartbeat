@@ -19,6 +19,8 @@ Requirements
 
 * Ubuntu 10.04+
 * Debian 6.0+
+* Centos
+* Redhat
 
 Recipes
 =======
