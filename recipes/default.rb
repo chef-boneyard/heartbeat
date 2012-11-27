@@ -17,10 +17,10 @@
 # limitations under the License.
 #
 
-case node['platform']
-when "centos", "redhat"
+case node['platform_family']
+when "rhel", "fedora"
     package_list = ['heartbeat', 'heartbeat-devel']
-when "ubuntu", "debian"
+when "debian"
     package_list = ['heartbeat', 'heartbeat-dev']
 end
 package_list.each do |pkg|
@@ -36,5 +36,3 @@ service "heartbeat" do
   )
   action :enable
 end
-
-  
