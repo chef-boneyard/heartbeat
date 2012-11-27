@@ -24,7 +24,7 @@ action :create do
   interface = new_resource.interface.is_a?(Array) ? new_resource.interface : [new_resource.interface]
   authkeys = new_resource.authkeys.is_a?(Array) ? new_resource.authkeys : [new_resource.authkeys]
 
-  template "/etc/ha.d/ha.cf" do
+  template "#{node['heartbeat']['conf_dir']}/ha.cf" do
     cookbook "heartbeat"
     source "ha.cf.erb"
     mode "644"
@@ -34,7 +34,7 @@ action :create do
     variables :heartbeat => new_resource, :nodes => nodes, :interface => interface
   end
 
-  template "/etc/ha.d/authkeys" do
+  template "#{node['heartbeat']['conf_dir']}/authkeys" do
     cookbook "heartbeat"
     source "authkeys.erb"
     owner "root"
@@ -44,7 +44,7 @@ action :create do
     variables :active => new_resource.active_key || authkeys.length, :keys => authkeys
   end
 
-  template "/etc/ha.d/haresources" do
+  template "#{node['heartbeat']['conf_dir']}/haresources" do
     cookbook "heartbeat"
     source "haresources.erb"
     owner "root"
