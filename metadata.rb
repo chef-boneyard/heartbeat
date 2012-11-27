@@ -7,6 +7,6 @@ version           "0.7.1"
 
 recipe "heartbeat", "Installs, but does not configure, heartbeat"
 
-%w{ debian ubuntu centos redhat }.each do |os|
+%w{ debian ubuntu centos redhat amazon scientific fedora oracle }.each do |os|
   supports os
 end
