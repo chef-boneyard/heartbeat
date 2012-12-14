@@ -121,6 +121,12 @@ attributes to manage a complete heartbeat configuration.
 Usage
 =====
 
+Use the `default` recipe to install heartbeat's packages and manage
+the service.
+
+Use the LWRP in your own recipe, or set the attributes described above
+and use the `config` recipe to setup a heartbeat-monitored application.
+
 License and Author
 ==================
 
