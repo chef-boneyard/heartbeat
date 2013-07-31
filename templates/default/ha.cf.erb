@@ -13,7 +13,7 @@ warntime <%= @heartbeat.warntime %>
 <% case @heartbeat.mode.to_sym -%>
 <% when :ucast -%>
 <% @nodes.select{|n| n['macaddress'] != node['macaddress']}.each do |n| -%>
-ucast <%=@interface.first %> <%= n['ipaddress'] %>
+ucast <%=@interface.first %> <%= n['network']['interfaces'][@interface.first]['addresses'].select { |address, data| data['family'] == 'inet' }.keys[0] %>
 <% end -%>
 <% when :bcast -%>
 bcast <%= @interface.join(' ') %>
