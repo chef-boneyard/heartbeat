@@ -35,6 +35,7 @@ default['heartbeat']['config']['authkeys'] = nil
 default['heartbeat']['config']['active_key'] = nil
 default['heartbeat']['config']['mode'] = nil
 default['heartbeat']['config']['interface'] = nil
+default['heartbeat']['config']['unicast_target_ip'] = nil
 default['heartbeat']['config']['mcast_group'] = nil
 default['heartbeat']['config']['mcast_ttl'] = nil
 default['heartbeat']['config']['resource_ip'] = nil

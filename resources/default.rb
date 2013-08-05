@@ -43,6 +43,7 @@ attribute :authkeys, :kind_of => [Array, String], :required => true
 attribute :active_key, :kind_of => Integer
 attribute :mode, :equal_to => [:bcast, 'bcast', :mcast, 'mcast', :ucast, 'ucast'], :default => :ucast
 attribute :interface, :kind_of => [String, Array], :default => node['network']['default_interface']
+attribute :unicast_target_ip, :kind_of => String, :default => node['network']['interfaces'][node['network']['default_interface']]['addresses'].select { |address, data| data['family'] == 'inet' }.keys[0]
 attribute :mcast_group, :kind_of => String
 attribute :mcast_ttl, :kind_of => Integer, :default => 1
 attribute :resource_groups, :default => []
