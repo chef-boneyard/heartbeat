@@ -35,6 +35,7 @@ heartbeat "heartbeat" do
   active_key node['heartbeat']['config']['active_key']
   mode node['heartbeat']['config']['mode']
   interface node['heartbeat']['config']['interface']
+  unicast_target_ip node['heartbeat']['config']['unicast_target_ip']
   mcast_group node['heartbeat']['config']['mcast_group']
   mcast_ttl node['heartbeat']['config']['mcast_ttl']
   resources node['heartbeat']['config']['resource_ip']
