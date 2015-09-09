@@ -10,3 +10,6 @@ recipe "heartbeat", "Installs, but does not configure, heartbeat"
 %w{ debian ubuntu centos redhat amazon scientific fedora oracle }.each do |os|
   supports os
 end
+
+source_url 'https://github.com/chef-cookbooks/heartbeat' if respond_to?(:source_url)
+issues_url 'https://github.com/chef-cookbooks/heartbeat/issues' if respond_to?(:issues_url)
