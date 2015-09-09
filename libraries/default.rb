@@ -49,6 +49,7 @@ class Chef
             Chef::Log.debug "Trying to load heartbeat resource #{resource_name} for #{name}"
             resource = super(resource_name.to_sym, args.first || name, &block)
             break
+          # rubocop:disable Lint/UselessAssignment
           rescue NameError => e
             # Works on any MRI ruby
             if e.name == resource_name.to_sym || e.inspect =~ /\b#{resource_name}\b/
