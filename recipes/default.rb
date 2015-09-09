@@ -18,10 +18,10 @@
 #
 
 case node['platform_family']
-when "rhel", "fedora"
-    package_list = ['heartbeat', 'heartbeat-devel']
-when "debian"
-    package_list = ['heartbeat', 'heartbeat-dev']
+when 'rhel', 'fedora'
+  package_list = ['heartbeat', 'heartbeat-devel']
+when 'debian'
+  package_list = ['heartbeat', 'heartbeat-dev']
 end
 package_list.each do |pkg|
   package pkg do
@@ -29,10 +29,10 @@ package_list.each do |pkg|
   end
 end
 
-service "heartbeat" do
+service 'heartbeat' do
   supports(
-    :restart => true,
-    :status => true
+    restart: true,
+    status: true
   )
   action :enable
 end

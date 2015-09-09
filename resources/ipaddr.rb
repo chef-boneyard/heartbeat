@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-attribute :ip, :kind_of => String, :name_attribute => true
+attribute :ip, kind_of: String, name_attribute: true
 
 def to_resource
   ip
