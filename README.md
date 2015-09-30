@@ -15,20 +15,20 @@ project.
 * http://linux-ha.org/wiki/Heartbeat
 
 Requirements
-============
+------------
+#### Platforms
+- Debian/Ubuntu
+- RHEL/CentOS/Scientific/Amazon/Oracle
 
-Requires a Chef Server due to use of Search.
+#### Chef
+- Chef 11+
 
-## Platform:
+#### Cookbooks
+- none
 
-Supported via Platform Family:
-
-* Debian
-* RHEL
 
 Attributes
-==========
-
+----------
 * `node['heartbeat']['conf_dir']` - Directory where heartbeat
   configuration lives.
 
@@ -58,20 +58,20 @@ descriptions.
 * `node['heartbeat']['config']['resource_ip']`
 
 Resources/Providers
-===================
+-------------------
 
-## heartbeat
+### heartbeat
 
 Manages heartbeat configuration files (ha.cf, authkeys, haresources).
 
-### Actions
+#### Actions
 
 * `:create` - *Default* Creates the configuration. This will search for a
   specified query (see the `search` resource attribute below), and
   fall back to finding the cookbook and recipe name where the LWRP is
   used in the node's `recipes` attribute.
 
-### Attributes
+#### Attributes
 
 * `auto_failback` - used for the `auto_failback` configuration directive in ha.cf.
 * `autojoin` - used for the `autojoin` configuration directive in ha.cf.
@@ -95,51 +95,46 @@ Manages heartbeat configuration files (ha.cf, authkeys, haresources).
   corresponds to the configuration directives in ha.cf.
 * `resource_groups` - array of resource groups
 
-### Examples
+#### Examples
 
 See `recipe[heartbeat::config]`.
 
-## heartbeat\_ipaddr
+### heartbeat\_ipaddr
 
 Used in the `heartbeat` LWRP for the group IP.
 
-## heartbeat\_resource\_group
+### heartbeat\_resource\_group
 
 Manages the haresources resource_groups.
 
 Recipes
-=======
-
-default
 -------
+
+###default
 
 Installs the heartbeat and heartbeat-dev packages, and manages the
 heartbeat service. The recipe does not at this time manage any configuration.
 
-config
-------
+###config
 
 Uses the heartbeat LWRP with the `node['heartbeat']['config']`
 attributes to manage a complete heartbeat configuration.
 
 Usage
-=====
-
+-----
 Use the `default` recipe to install heartbeat's packages and manage
 the service.
 
 Use the LWRP in your own recipe, or set the attributes described above
 and use the `config` recipe to setup a heartbeat-monitored application.
 
-License and Author
-==================
+License & Authors
+-----------------
 
-- Author:: Joshua Timberman <joshua@chef.io>
-- Author: Noah Kantrowitz <noah@chef.io>
+**Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
 
-```text
-- Copyright:: 2009-2015, Chef Software, Inc
-
+**Copyright:** 2009-2015, Chef Software, Inc.
+```
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
