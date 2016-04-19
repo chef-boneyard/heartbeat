@@ -13,7 +13,7 @@ It is outside the scope of this cookbook and the README to replace documentation
 ### Platforms
 
 - Debian/Ubuntu
-- RHEL/CentOS/Scientific/Amazon/Oracle
+- RHEL/CentOS/Scientific/Amazon/Oracle 6+
 
 ### Chef
 
