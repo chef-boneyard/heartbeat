@@ -1,64 +1,54 @@
-heartbeat Cookbook
-==================
+# heartbeat Cookbook
 
-[![Build Status](https://travis-ci.org/chef-cookbooks/heartbeat.svg?branch=master)](http://travis-ci.org/chef-cookbooks/heartbeat)
-[![Cookbook Version](https://img.shields.io/cookbook/v/heartbeat.svg)](https://supermarket.chef.io/cookbooks/heartbeat)
+[![Build Status](https://travis-ci.org/chef-cookbooks/heartbeat.svg?branch=master)](http://travis-ci.org/chef-cookbooks/heartbeat) [![Cookbook Version](https://img.shields.io/cookbook/v/heartbeat.svg)](https://supermarket.chef.io/cookbooks/heartbeat)
 
+Installs heartbeat, and includes resources/providers for managing heartbeat configuration.
 
-Installs heartbeat, and includes resources/providers for managing
-heartbeat configuration.
+It is outside the scope of this cookbook and the README to replace documentation and user understanding of the linux-ha and heartbeat project.
 
-It is outside the scope of this cookbook and the README to replace
-documentation and user understanding of the linux-ha and heartbeat
-project.
+- <http://linux-ha.org/wiki/Heartbeat>
 
-* http://linux-ha.org/wiki/Heartbeat
+## Requirements
 
-Requirements
-------------
-#### Platforms
+### Platforms
+
 - Debian/Ubuntu
 - RHEL/CentOS/Scientific/Amazon/Oracle
 
-#### Chef
+### Chef
+
 - Chef 11+
 
-#### Cookbooks
-- none
+### Cookbooks
 
+- yum-epel
 
-Attributes
-----------
-* `node['heartbeat']['conf_dir']` - Directory where heartbeat
-  configuration lives.
+## Attributes
 
-The following attributes are used in `recipe[heartbeat::config]` to
-pass into the LWRP used there. Each corresponds to a resource
-attribute in the LWRP, making the recipe drivable with attributes,
-e.g. set in a role. See the `heartbeat` resource attributes below for
-descriptions.
+- `node['heartbeat']['conf_dir']` - Directory where heartbeat configuration lives.
 
-* `node['heartbeat']['config']['auto_failback']`
-* `node['heartbeat']['config']['autojoin']`
-* `node['heartbeat']['config']['compression']`
-* `node['heartbeat']['config']['compression_threshold']`
-* `node['heartbeat']['config']['deadtime']`
-* `node['heartbeat']['config']['initdead']`
-* `node['heartbeat']['config']['keepalive']`
-* `node['heartbeat']['config']['logfacility']`
-* `node['heartbeat']['config']['udpport']`
-* `node['heartbeat']['config']['warntime']`
-* `node['heartbeat']['config']['search']`
-* `node['heartbeat']['config']['authkeys']`
-* `node['heartbeat']['config']['active_key']`
-* `node['heartbeat']['config']['mode']`
-* `node['heartbeat']['config']['interface']`
-* `node['heartbeat']['config']['mcast_group']`
-* `node['heartbeat']['config']['mcast_ttl']`
-* `node['heartbeat']['config']['resource_ip']`
+The following attributes are used in `recipe[heartbeat::config]` to pass into the LWRP used there. Each corresponds to a resource attribute in the LWRP, making the recipe drivable with attributes, e.g. set in a role. See the `heartbeat` resource attributes below for descriptions.
 
-Resources/Providers
--------------------
+- `node['heartbeat']['config']['auto_failback']`
+- `node['heartbeat']['config']['autojoin']`
+- `node['heartbeat']['config']['compression']`
+- `node['heartbeat']['config']['compression_threshold']`
+- `node['heartbeat']['config']['deadtime']`
+- `node['heartbeat']['config']['initdead']`
+- `node['heartbeat']['config']['keepalive']`
+- `node['heartbeat']['config']['logfacility']`
+- `node['heartbeat']['config']['udpport']`
+- `node['heartbeat']['config']['warntime']`
+- `node['heartbeat']['config']['search']`
+- `node['heartbeat']['config']['authkeys']`
+- `node['heartbeat']['config']['active_key']`
+- `node['heartbeat']['config']['mode']`
+- `node['heartbeat']['config']['interface']`
+- `node['heartbeat']['config']['mcast_group']`
+- `node['heartbeat']['config']['mcast_ttl']`
+- `node['heartbeat']['config']['resource_ip']`
+
+## Resources/Providers
 
 ### heartbeat
 
@@ -66,72 +56,60 @@ Manages heartbeat configuration files (ha.cf, authkeys, haresources).
 
 #### Actions
 
-* `:create` - *Default* Creates the configuration. This will search for a
-  specified query (see the `search` resource attribute below), and
-  fall back to finding the cookbook and recipe name where the LWRP is
-  used in the node's `recipes` attribute.
+- `:create` - _Default_ Creates the configuration. This will search for a specified query (see the `search` resource attribute below), and fall back to finding the cookbook and recipe name where the LWRP is used in the node's `recipes` attribute.
 
 #### Attributes
 
-* `auto_failback` - used for the `auto_failback` configuration directive in ha.cf.
-* `autojoin` - used for the `autojoin` configuration directive in ha.cf.
-* `compression` - used for the `compression` configuration directive in ha.cf.
-* `compression_threshold` - used for the `compression_threshold` configuration directive in ha.cf.
-* `deadtime` - used for the `deadtime` configuration directive in ha.cf.
-* `initdead` - used for the `initdead` configuration directive in ha.cf.
-* `keepalive` - used for the `keepalive` configuration directive in ha.cf.
-* `logfacility` - used for the `logfacility` configuration directive in ha.cf.
-* `udpport` - used for the `udpport` configuration directive in ha.cf.
-* `warntime` - used for the `warntime` configuration directive in ha.cf.
-* `search` - a search query to use instead of the default (see
-  description above).
-* `authkeys` - sha1 keys used in the authkeys config file.
-* `active_key` - the key used for the `auth` configuration directive
-  in the authkeys config file.
-* `interface` - used for the `` configuration directive in ha.cf.
-* `mcast_group` - used for the `` configuration directive in ha.cf.
-* `mcast_ttl` - used for the `` configuration directive in ha.cf.
-* `mode` - tye network mode to use, can be ucast, bcast, or mcast,
-  corresponds to the configuration directives in ha.cf.
-* `resource_groups` - array of resource groups
+- `auto_failback` - used for the `auto_failback` configuration directive in ha.cf.
+- `autojoin` - used for the `autojoin` configuration directive in ha.cf.
+- `compression` - used for the `compression` configuration directive in ha.cf.
+- `compression_threshold` - used for the `compression_threshold` configuration directive in ha.cf.
+- `deadtime` - used for the `deadtime` configuration directive in ha.cf.
+- `initdead` - used for the `initdead` configuration directive in ha.cf.
+- `keepalive` - used for the `keepalive` configuration directive in ha.cf.
+- `logfacility` - used for the `logfacility` configuration directive in ha.cf.
+- `udpport` - used for the `udpport` configuration directive in ha.cf.
+- `warntime` - used for the `warntime` configuration directive in ha.cf.
+- `search` - a search query to use instead of the default (see description above).
+- `authkeys` - sha1 keys used in the authkeys config file.
+- `active_key` - the key used for the `auth` configuration directive in the authkeys config file.
+- `interface` - used for the `` configuration directive in ha.cf.
+- `mcast_group` - used for the `` configuration directive in ha.cf.
+- `mcast_ttl` - used for the `` configuration directive in ha.cf.
+- `mode` - tye network mode to use, can be ucast, bcast, or mcast, corresponds to the configuration directives in ha.cf.
+- `resource_groups` - array of resource groups
 
 #### Examples
 
 See `recipe[heartbeat::config]`.
 
-### heartbeat\_ipaddr
+### heartbeat_ipaddr
 
 Used in the `heartbeat` LWRP for the group IP.
 
-### heartbeat\_resource\_group
+### heartbeat_resource_group
 
 Manages the haresources resource_groups.
 
-Recipes
--------
+## Recipes
 
-###default
+### default
 
-Installs the heartbeat and heartbeat-dev packages, and manages the
-heartbeat service. The recipe does not at this time manage any configuration.
+Installs the heartbeat and heartbeat-dev packages, and manages the heartbeat service. The recipe does not at this time manage any configuration.
 
-###config
+### config
 
-Uses the heartbeat LWRP with the `node['heartbeat']['config']`
-attributes to manage a complete heartbeat configuration.
+Uses the heartbeat LWRP with the `node['heartbeat']['config']` attributes to manage a complete heartbeat configuration.
 
-Usage
------
-Use the `default` recipe to install heartbeat's packages and manage
-the service.
+## Usage
 
-Use the LWRP in your own recipe, or set the attributes described above
-and use the `config` recipe to setup a heartbeat-monitored application.
+Use the `default` recipe to install heartbeat's packages and manage the service.
 
-License & Authors
------------------
+Use the LWRP in your own recipe, or set the attributes described above and use the `config` recipe to setup a heartbeat-monitored application.
 
-**Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
+## License & Authors
+
+**Author:** Cookbook Engineering Team ([cookbooks@chef.io](mailto:cookbooks@chef.io))
 
 **Copyright:** 2009-2015, Chef Software, Inc.
 
