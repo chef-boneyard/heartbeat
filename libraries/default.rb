@@ -59,8 +59,8 @@ class Chef
             end
           end
         end
-        fail NameError, "No resource found for #{name}. Tried #{lookup_path.join(', ')}" unless resource
-        fail ArgumentError, "Resource instance #{resource} is not a valid heartbeat resource" unless resource.respond_to?(:to_resource)
+        raise NameError, "No resource found for #{name}. Tried #{lookup_path.join(', ')}" unless resource
+        raise ArgumentError, "Resource instance #{resource} is not a valid heartbeat resource" unless resource.respond_to?(:to_resource)
         provider = resource.provider || begin
           Chef::Platform.provider_for_resource(resource)
         rescue ArgumentError => e

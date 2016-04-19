@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+use_inline_resources
+
 action :create do
   query = new_resource.search || "recipes:#{new_resource.cookbook_name}\\:\\:#{new_resource.recipe_name}"
   nodes = search(:node, query)
