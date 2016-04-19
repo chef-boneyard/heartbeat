@@ -2,6 +2,9 @@ heartbeat Cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the heartbeat cookbook.
 
+## v1.1.0
+* Added support for RHEL platforms by requiring yum-epel cookbook
+
 ## v1.0.1
 * Added .foodcritic file to skip certain rules
 * Updated .gitignore file
