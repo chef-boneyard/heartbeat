@@ -12,5 +12,7 @@ recipe 'heartbeat', 'Installs, but does not configure, heartbeat'
   supports os
 end
 
+depends 'yum-epel'
+
 source_url 'https://github.com/chef-cookbooks/heartbeat' if respond_to?(:source_url)
 issues_url 'https://github.com/chef-cookbooks/heartbeat/issues' if respond_to?(:issues_url)
