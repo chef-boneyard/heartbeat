@@ -8,7 +8,7 @@ version           '1.1.0'
 
 recipe 'heartbeat', 'Installs, but does not configure, heartbeat'
 
-%w( debian ubuntu centos redhat amazon scientific fedora oracle ).each do |os|
+%w( debian ubuntu centos redhat amazon scientific oracle ).each do |os|
   supports os
 end
 
@@ -16,3 +16,5 @@ depends 'yum-epel'
 
 source_url 'https://github.com/chef-cookbooks/heartbeat' if respond_to?(:source_url)
 issues_url 'https://github.com/chef-cookbooks/heartbeat/issues' if respond_to?(:issues_url)
+
+chef_version '>= 11' if respond_to?(:chef_version)
