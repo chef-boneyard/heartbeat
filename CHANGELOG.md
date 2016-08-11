@@ -2,6 +2,11 @@ heartbeat Cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the heartbeat cookbook.
 
+## 1.1.1 (2016-08-11)
+- Testing updates
+- Properly fail on RHEL 7 / Fedora
+- Update README.md to clarify that RHEL 7 removed the hearbeat package
+
 ## v1.1.0
 * Added support for RHEL platforms by requiring yum-epel cookbook
 
