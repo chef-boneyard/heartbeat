@@ -13,7 +13,7 @@ It is outside the scope of this cookbook and the README to replace documentation
 ### Platforms
 
 - Debian/Ubuntu
-- RHEL/CentOS/Scientific/Amazon/Oracle 6+
+- RHEL/CentOS/Scientific/Amazon/Oracle 5-6 (7 does not have a hearbeat package)
 
 ### Chef
 
