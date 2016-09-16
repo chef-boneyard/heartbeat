@@ -2,6 +2,11 @@ heartbeat Cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the heartbeat cookbook.
 
+## 2.0.0 (2016-09-16)
+- Testing updates
+- Speed up intstalls with multipackage
+- Require Chef 12.1+
+
 ## 1.1.1 (2016-08-11)
 - Testing updates
 - Properly fail on RHEL 7 / Fedora
