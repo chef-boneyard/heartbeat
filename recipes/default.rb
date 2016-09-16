@@ -25,14 +25,9 @@ include_recipe 'yum-epel::default' if platform_family?('rhel')
 
 case node['platform_family']
 when 'rhel'
-  package_list = ['heartbeat', 'heartbeat-devel']
+  package %w(heartbeat heartbeat-devel)
 when 'debian'
-  package_list = ['heartbeat', 'heartbeat-dev']
-end
-package_list.each do |pkg|
-  package pkg do
-    action :install
-  end
+  package %w(heartbeat heartbeat-dev)
 end
 
 service 'heartbeat' do
