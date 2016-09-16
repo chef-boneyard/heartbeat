@@ -7,7 +7,7 @@ provisioner:
 platforms:
   - name: centos-5.11
   - name: centos-6.8
-  - name: centos-7.2
+  # - name: centos-7.2 # heartbeat is no longer included in centos 7
   - name: debian-7.11
     run_list: apt::default
   - name: debian-8.5

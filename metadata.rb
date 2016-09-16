@@ -14,7 +14,7 @@ end
 
 depends 'yum-epel'
 
-source_url 'https://github.com/chef-cookbooks/heartbeat' if respond_to?(:source_url)
-issues_url 'https://github.com/chef-cookbooks/heartbeat/issues' if respond_to?(:issues_url)
+source_url 'https://github.com/chef-cookbooks/heartbeat'
+issues_url 'https://github.com/chef-cookbooks/heartbeat/issues'
 
-chef_version '>= 11' if respond_to?(:chef_version)
+chef_version '>= 12.1'

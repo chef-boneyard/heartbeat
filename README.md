@@ -17,7 +17,7 @@ It is outside the scope of this cookbook and the README to replace documentation
 
 ### Chef
 
-- Chef 11+
+- Chef 12.1+
 
 ### Cookbooks
 
