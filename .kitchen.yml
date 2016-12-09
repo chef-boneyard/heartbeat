@@ -10,7 +10,7 @@ platforms:
   # - name: centos-7.2 # heartbeat is no longer included in centos 7
   - name: debian-7.11
     run_list: apt::default
-  - name: debian-8.5
+  - name: debian-8.6
     run_list: apt::default
   - name: ubuntu-12.04
     run_list: apt::default
