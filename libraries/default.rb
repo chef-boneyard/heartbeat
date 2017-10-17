@@ -21,7 +21,7 @@ class Chef
   class Resource
     class HeartbeatResourceGroup
       include Chef::Mixin::ParamsValidate
-      include Chef::Mixin::RecipeDefinitionDSLCore
+      include Chef::DSL::Recipe
 
       attr_reader :run_context, :cookbook_name, :recipe_name, :sub_resources
 
