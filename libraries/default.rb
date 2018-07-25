@@ -39,7 +39,7 @@ class Chef
       def method_missing(name, *args, &block)
         # Build the set of names to check for a valid resource
         lookup_path = ["heartbeat_#{name}"]
-        run_context.cookbook_collection.each do |cookbook_name, _cookbook_ver|
+        run_context.cookbook_collection.each_key do |cookbook_name|
           lookup_path << "#{cookbook_name}_heartbeat_#{name}"
         end
         resource = nil
@@ -60,11 +60,7 @@ class Chef
         end
         raise NameError, "No resource found for #{name}. Tried #{lookup_path.join(', ')}" unless resource
         raise ArgumentError, "Resource instance #{resource} is not a valid heartbeat resource" unless resource.respond_to?(:to_resource)
-        provider = resource.provider || begin
-          Chef::Platform.provider_for_resource(resource)
-        rescue ArgumentError => e
-          nil
-        end
+        provider = resource.provider
         # As a default this has #action_nothing on it
         resource.provider Chef::Provider::HeartbeatNull unless provider
         @sub_resources << resource
