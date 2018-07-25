@@ -2,6 +2,10 @@ heartbeat Cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the heartbeat cookbook.
 
+## 3.0.0 (2018-07-24)
+
+- Require Chef 13 or later
+
 ## 2.0.1 (2017-10-17)
 
 - Stop using deprecated chef::Mixin:recipeDefinitionDSLCore
