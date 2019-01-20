@@ -21,7 +21,6 @@ env:
   matrix:
   - INSTANCE=default-centos-6
   - INSTANCE=default-debian-8
-  - INSTANCE=default-ubuntu-1404
   - INSTANCE=default-ubuntu-1604
 
 before_script:
