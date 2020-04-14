@@ -2,6 +2,10 @@ heartbeat Cookbook CHANGELOG
 ============================
 This file is used to list changes made in each version of the heartbeat cookbook.
 
+## Unreleased
+
+- resolved cookstyle error: recipes/default.rb:21:3 refactor: `ChefCorrectness/ChefApplicationFatal`
+
 ## 3.0.0 (2018-07-24)
 
 - Require Chef 13 or later
