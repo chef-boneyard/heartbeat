@@ -18,7 +18,7 @@
 #
 
 if platform_family?('rhel', 'fedora') && node['platform_version'].to_i >= 7
-  Chef::Application.fatal!('RHEL 7+ / Fedora no longer contain heartbeat packages. Cannot continue.')
+  raise('RHEL 7+ / Fedora no longer contain heartbeat packages. Cannot continue.')
 end
 
 include_recipe 'yum-epel::default' if platform_family?('rhel')
