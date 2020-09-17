@@ -51,6 +51,6 @@ action :create do
     group 'root'
     mode '644'
     notifies :restart, 'service[heartbeat]'
-    variables heartbeat: new_resource, default: nodes.sort_by { |n| n['macaddress'] }.first['hostname']
+    variables heartbeat: new_resource, default: nodes.min_by { |n| n['macaddress'] }['hostname']
   end
 end
